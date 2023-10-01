@@ -155,11 +155,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return response()->json([
-            'image_1' => $post->image,
-            'image_2' => basename($post->image)
-        ]);
-
         //remove image
         Storage::disk('local')->delete('public/posts/' . basename($post->image));
 
